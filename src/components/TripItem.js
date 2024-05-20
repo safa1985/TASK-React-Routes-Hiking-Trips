@@ -1,8 +1,14 @@
-import React from 'react';
-
+import React from "react";
+import { useNavigate } from "react-router-dom";
+//import { Link } from "react-router-dom";
 function TripItem({ trip }) {
+  const navigate = useNavigate();
+  const handelNavigation = () => {
+    navigate(`/TripDetail/${trip.id}`);
+  };
   return (
-    <div className="col-md-6 col-lg-4 mb-5">
+    //<link>
+    <div className="col-md-6 col-lg-4 mb-5" onClick={handelNavigation}>
       <div
         className="portfolio-item mx-auto"
         data-bs-toggle="modal"
@@ -16,6 +22,7 @@ function TripItem({ trip }) {
         <img className="img-fluid" src={trip.img} alt="..." />
       </div>
     </div>
+    //</link>
   );
 }
 

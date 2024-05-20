@@ -1,8 +1,16 @@
-import React from 'react';
-import tripsData from '../tripsData';
+import React from "react";
+import tripsData from "../tripsData";
+import { useParams } from "react-router-dom";
 
 function TripDetail() {
-  const trip = tripsData[0];
+  const { tripId } = useParams();
+  const trip = tripsData.find((trip) => {
+    return trip.id == tripId;
+  });
+  if (!trip) {
+    return <h1> trip that you looking for is not found!</h1>;
+  }
+
   return (
     <div className="modal-dialog modal-xl">
       <div className="modal-content">
@@ -10,6 +18,7 @@ function TripDetail() {
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-lg-8">
+                <h1> this is the trip details: {tripId}</h1>
                 <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">
                   {trip.name}
                 </h2>

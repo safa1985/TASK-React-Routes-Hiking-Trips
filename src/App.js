@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/Home" Component={Home} />
         <Route path="/TripsList" Component={TripsList} />
-        <Route path="/TripDetail" Component={TripDetail} />
+        <Route path="/TripDetail/:tripId" Component={TripDetail} />
       </Routes>
     </div>
   );
